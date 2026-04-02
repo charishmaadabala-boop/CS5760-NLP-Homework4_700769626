@@ -111,8 +111,8 @@ for epoch in range(10):
         total_loss += loss.item()
 
     print("Epoch:", epoch, "Loss:", total_loss)
-    # Q2
-    -------------------------------------------------------
+# Q2
+-------------------------------------------------------
     import torch
     import torch.nn as nn
 
@@ -181,7 +181,7 @@ out = model(inp)
 # Output shape: (sequence_length, batch_size, d_model)
 print(out.shape)
 
-Q3.
+# Q3.
 -----------------------------------------------------------------------
 import torch
 import torch.nn.functional as F
