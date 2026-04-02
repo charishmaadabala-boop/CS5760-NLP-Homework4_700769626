@@ -1,0 +1,18 @@
+import torch
+import torch.nn.functional as F
+
+def attention(Q, K, V):
+    d_k = Q.size(-1)
+    scores = torch.matmul(Q, K.transpose(-2,-1)) / torch.sqrt(torch.tensor(d_k, dtype=torch.float32))
+    weights = F.softmax(scores, dim=-1)
+    output = torch.matmul(weights, V)
+    return output, weights
+
+# Test
+Q = torch.randn(2,4)
+K = torch.randn(2,4)
+V = torch.randn(2,4)
+
+out, w = attention(Q,K,V)
+print("Weights:", w)
+print("Output:", out)
